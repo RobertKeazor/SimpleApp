@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.robertkeazor.chatapp"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation kotlinLib.stdlib
+
+    implementation androidLibs.appCompat
+    implementation androidLibs.ktx
+    implementation androidLibs.constraintLayout
+    implementation androidLibs.lifeCycle
+    implementation androidLibs.lifeCycleKtx
+    implementation androidLibs.recyclerView
+
+    implementation retrofit.core
+    implementation retrofit.rxjava2_adapter
+
+    implementation androidLibs.nav_fragment
+    implementation androidLibs.nav_ui
+
+    implementation coroutines
+
+    implementation room.runtime
+    kapt room.compiler
+    implementation room.rxjava
+    implementation room.coroutines
+    testImplementation room.testing
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
