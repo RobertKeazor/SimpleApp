@@ -16,7 +16,7 @@ ext {
     butterknifeLibVersion = '9.0.0'
     firebaseLibVersion = '12.0.1'
     kombind_version = '0.5.0'
-    dagger_version = '2.19'
+    dagger_version = '2.21'
     javax_version = '10.0-b28'
     lifecycleComponentVersion = '1.1.1'
     google_play_services_version = '12.0.1'
@@ -28,7 +28,7 @@ ext {
 
 
     //New Versions
-    lifecycle_version = '2.0.0'
+    lifecycle_version = '2.1.0-alpha02'
     moshi_version = '1.8.0'
     nav_version = '1.0.0-rc02'
     room_version = "2.1.0-alpha04"
@@ -46,10 +46,10 @@ ext {
             constraintLayout: "androidx.constraintlayout:constraintlayout:2.0.0-alpha3",
             lifeCycle       : "androidx.lifecycle:lifecycle-extensions:$lifecycle_version",
             lifeCycleKtx    : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            lifecycleKapt   :  "androidx.lifecycle:lifecycle-compiler:$lifecycle_version",
             futures         : "androidx.concurrent:concurrent-futures:1.0.0-alpha2",
             nav_fragment    : "android.arch.navigation:navigation-fragment-ktx:$nav_version",
             nav_ui          : "android.arch.navigation:navigation-ui-ktx:$nav_version"
-
     ]
 
     androidx = [
