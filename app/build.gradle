@@ -40,6 +40,8 @@ dependencies {
     implementation androidLibs.lifeCycleKtx
     kapt androidLibs.lifecycleKapt
     implementation androidLibs.recyclerView
+    implementation firebase.core
+    implementation firebase.auth
 
     implementation retrofit.core
     implementation retrofit.rxjava2_adapter
@@ -53,20 +55,23 @@ dependencies {
     kapt dagger.compiler
     implementation dagger.lib
 
-    implementation coroutines
     implementation 'com.google.android.material:material:1.0.0'
     implementation "com.airbnb.android:lottie:3.0.0-beta2"
+
+    implementation coroutines.core
+    implementation coroutines.android
 
     implementation room.runtime
     kapt room.compiler
     implementation room.rxjava
     implementation room.coroutines
-    testImplementation room.testing
 
+    testImplementation room.testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+
 }
+
+apply plugin: 'com.google.gms.google-services'

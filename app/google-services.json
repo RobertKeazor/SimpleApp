@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "323204792541",
+    "firebase_url": "https://chatapp-755c2.firebaseio.com",
+    "project_id": "chatapp-755c2",
+    "storage_bucket": "chatapp-755c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323204792541:android:c238cbfc9108555e",
+        "android_client_info": {
+          "package_name": "com.robertkeazor.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323204792541-5f6hqasspidjp4uqh8s6975d724cog7r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSFbB1fBvdw2njdPGDWS8mLPe_JeQHMeU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

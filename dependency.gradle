@@ -56,6 +56,11 @@ ext {
             test: "androidx.test:core:$android_test_version"
     ]
 
+    firebase = [
+            core : 'com.google.firebase:firebase-core:16.0.7',
+            auth :  'com.google.firebase:firebase-auth:16.1.0'
+    ]
+
     kotlinLib = [
             stdlib : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
             reflect: "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
@@ -75,14 +80,6 @@ ext {
     butterknifeLib = [
             butterknife        : "com.jakewharton:butterknife:$butterknifeLibVersion",
             butterknifeCompiler: "com.jakewharton:butterknife-compiler:$butterknifeLibVersion"
-    ]
-
-    firebase = [
-            core       : "com.google.firebase:firebase-core:$firebaseLibVersion",
-            config     : "com.google.firebase:firebase-config:$firebaseLibVersion",
-            appindexing: "com.google.firebase:firebase-appindexing:$firebaseLibVersion",
-            messaging  : "com.google.firebase:firebase-messaging:$firebaseLibVersion"
-
     ]
 
     retrofit = [
@@ -122,7 +119,10 @@ ext {
             auth: "com.google.android.gms:play-services-auth:$google_play_services_version"
     ]
 
-    coroutines = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
+    coroutines = [
+            core     : "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1",
+            android  : "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
+    ]
 
     mockito = "org.mockito:mockito-core:$mockito_version"
 
