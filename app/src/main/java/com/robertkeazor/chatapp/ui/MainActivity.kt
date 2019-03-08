@@ -1,9 +1,8 @@
-package com.robertkeazor.chatapp
+package com.robertkeazor.chatapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.Navigation.findNavController
-import com.robertkeazor.chatapp.ui.main.MainFragment
+import com.robertkeazor.chatapp.R
 
 class MainActivity : AppCompatActivity() {
 
