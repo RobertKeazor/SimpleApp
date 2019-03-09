@@ -1,5 +1,6 @@
 package com.robertkeazor.chatapp.base
 
+import android.content.Context
 import com.robertkeazor.chatapp.ui.main.di.LoginModule
 import com.robertkeazor.chatapp.ui.main.di.ViewModelModule
 import dagger.BindsInstance
@@ -24,6 +25,9 @@ interface MainApplicationComponent {
     interface Builder {
         @BindsInstance
         fun app(app: MainApplication): Builder
+
+        @BindsInstance
+        fun context(context: Context): Builder
 
         fun build(): MainApplicationComponent
     }

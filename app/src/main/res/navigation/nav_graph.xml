@@ -5,5 +5,5 @@
             app:startDestination="@id/mainFragment">
 
     <fragment android:id="@+id/mainFragment" android:name="com.robertkeazor.chatapp.ui.main.login.LoginFragment"
-              android:label="main_fragment" tools:layout="@layout/main_fragment"/>
+              android:label="main_fragment" tools:layout="@layout/login"/>
 </navigation>

@@ -22,6 +22,7 @@ class MainApplication : Application(), HasSupportFragmentInjector  {
         if (mAppComponent == null) {
             mAppComponent = DaggerMainApplicationComponent.builder()
                 .app(this)
+                .context(this)
                 .build()
             mAppComponent!!.inject(this)
         }

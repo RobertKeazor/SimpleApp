@@ -27,6 +27,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:hint="@string/username"
+                android:text="@={vm.userName}"
                 android:background="@drawable/round_text_bg"
                 android:paddingStart="@dimen/spacing_normal"
                 android:paddingEnd="@dimen/spacing_normal"
@@ -38,12 +39,14 @@
                 app:layout_constraintTop_toBottomOf="@id/funny_animation"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintVertical_chainStyle="packed"
-                app:layout_constraintBottom_toTopOf="@+id/password"/>
+                app:layout_constraintBottom_toTopOf="@+id/password"
+                app:setErrorBinding="@{ vm.registerError}"/>
         <EditText
                 android:id="@+id/password"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:hint="@string/password"
+                android:text="@={vm.password}"
                 android:inputType="textPassword"
                 android:paddingStart="@dimen/spacing_normal"
                 android:paddingEnd="@dimen/spacing_normal"
@@ -57,13 +60,15 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintBottom_toTopOf="@+id/appCompatButton"/>
         <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/appCompatButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/user_name"
                 app:layout_constraintEnd_toEndOf="@id/user_name"
                 android:layout_marginTop="@dimen/spacing_normal"
                 app:layout_constraintTop_toBottomOf="@+id/password"
-                app:layout_constraintWidth_percent="0.4" android:id="@+id/appCompatButton"
+                app:layout_constraintWidth_percent="0.4"
+                android:onClick="@{()-> vm.onRegisterButtonClick()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

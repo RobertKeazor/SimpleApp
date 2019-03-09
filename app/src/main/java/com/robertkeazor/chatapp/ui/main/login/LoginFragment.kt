@@ -28,8 +28,9 @@ class LoginFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View {
         vm = ViewModelProviders.of(this, viewModelFactory)[LoginViewModel::class.java]
-        val binding: ViewDataBinding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
+        val binding: ViewDataBinding = DataBindingUtil.inflate(inflater, R.layout.login, container, false)
         binding.setVariable(BR.vm, vm)
+        binding.lifecycleOwner = this
         return binding.root
     }
 }

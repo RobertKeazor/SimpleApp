@@ -61,6 +61,10 @@ dependencies {
     implementation coroutines.core
     implementation coroutines.android
 
+    implementation reactive.rxJava
+    implementation reactive.rxAndroid
+
+
     implementation room.runtime
     kapt room.compiler
     implementation room.rxjava
