@@ -15,10 +15,4 @@ abstract class BaseFragment<T: ViewModel, Y: Class<ViewModel>> : DaggerFragment(
     @Inject lateinit var viewModelFractory: ViewModelProvider.Factory
     lateinit var vm: T
     abstract val layout: Int
-
-
-
-
-
-
 }
