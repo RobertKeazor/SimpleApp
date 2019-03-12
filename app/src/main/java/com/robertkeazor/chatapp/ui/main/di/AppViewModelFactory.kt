@@ -25,14 +25,13 @@ internal annotation class ViewModelKey(val value: KClass<out ViewModel>)
 
 @Module
 abstract class ViewModelModule {
-
     @Binds
     internal abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
     @Binds
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
-    internal abstract fun postListViewModel(viewModel: LoginViewModel): ViewModel
+    internal abstract fun LoginViewModel(viewModel: LoginViewModel): ViewModel
 
     //Add more ViewModels here
 }

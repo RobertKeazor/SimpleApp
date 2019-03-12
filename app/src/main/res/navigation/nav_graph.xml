@@ -5,5 +5,9 @@
             app:startDestination="@id/mainFragment">
 
     <fragment android:id="@+id/mainFragment" android:name="com.robertkeazor.chatapp.ui.main.login.LoginFragment"
-              android:label="main_fragment" tools:layout="@layout/login"/>
-</navigation>
+              android:label="main_fragment" tools:layout="@layout/register">
+        <action android:id="@+id/action_mainFragment_to_chatFragment" app:destination="@id/chatFragment"
+                app:enterAnim="@anim/nav_default_pop_enter_anim" app:launchSingleTop="false"/>
+    </fragment>
+    <fragment android:id="@+id/chatFragment" android:name="com.robertkeazor.chatapp.ui.main.ChatFragment"
+              android:label="chat_fragment" tools:layout="@layout/chat_fragment"/></navigation>

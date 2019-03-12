@@ -38,6 +38,10 @@ dependencies {
     implementation androidLibs.constraintLayout
     implementation androidLibs.lifeCycle
     implementation androidLibs.lifeCycleKtx
+    implementation 'com.google.firebase:firebase-database:16.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     kapt androidLibs.lifecycleKapt
     implementation androidLibs.recyclerView
     implementation firebase.core
@@ -76,6 +80,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.google.firebase:firebase-firestore:18.1.0'
 
 
 }

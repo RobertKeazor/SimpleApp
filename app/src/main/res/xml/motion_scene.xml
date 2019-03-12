@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+        xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+            motion:constraintSetStart="@layout/register"
+            motion:constraintSetEnd="@layout/login">
+        <OnClick motion:target="@id/register_toggle"/>
+    </Transition>
+    <Transition
+            motion:constraintSetStart="@layout/login"
+            motion:constraintSetEnd="@layout/register">
+        <OnClick motion:target="@id/sign_in_toggle"/>
+    </Transition>
+</MotionScene>

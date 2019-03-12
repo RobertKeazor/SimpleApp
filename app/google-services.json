@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "323204792541-6savpe2sbjd0e979ag1dmto4sma6hthv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.robertkeazor.chatapp",
+            "certificate_hash": "4bccf93da7558e19cccfb52a6dfc98aabf8cdf1f"
+          }
+        },
+        {
           "client_id": "323204792541-5f6hqasspidjp4uqh8s6975d724cog7r.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323204792541-5f6hqasspidjp4uqh8s6975d724cog7r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
