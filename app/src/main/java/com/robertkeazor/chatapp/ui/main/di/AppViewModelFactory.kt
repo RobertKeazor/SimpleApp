@@ -2,6 +2,7 @@ package com.robertkeazor.chatapp.ui.main.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.robertkeazor.chatapp.ui.main.ChatViewModel
 import com.robertkeazor.chatapp.ui.main.login.LoginViewModel
 import dagger.Binds
 import dagger.MapKey
@@ -32,6 +33,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     internal abstract fun LoginViewModel(viewModel: LoginViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ChatViewModel::class)
+    internal abstract fun ChatViewModel(viewModel: ChatViewModel): ViewModel
 
     //Add more ViewModels here
 }

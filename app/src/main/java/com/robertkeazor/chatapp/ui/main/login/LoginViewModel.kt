@@ -5,12 +5,17 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.robertkeazor.chatapp.base.lifecycle.Event
-import com.robertkeazor.chatapp.manager.FirebaseManager
+import com.robertkeazor.chatapp.manager.UserDocRefManager
+import com.robertkeazor.chatapp.usecase.LoginUseCase
+import com.robertkeazor.chatapp.usecase.RegisterUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class LoginViewModel @Inject constructor(val firebaseManager: FirebaseManager) : ViewModel() {
+class LoginViewModel @Inject constructor(
+    val firebaseRefManager: UserDocRefManager,
+    val registerUseCase: RegisterUseCase,
+    val loginUseCase: LoginUseCase) : ViewModel() {
     val userName = MutableLiveData<String>()
     val password = MutableLiveData<String>()
     val email = MutableLiveData<String>()
@@ -18,18 +23,12 @@ class LoginViewModel @Inject constructor(val firebaseManager: FirebaseManager) :
     val disposables = CompositeDisposable()
     val enterChatScreenEvent = MutableLiveData<Event<Boolean>>()
 
+
     fun onRegisterButtonClick() {
-        Log.v("Testing", "testing")
-        if (true) {
-            disposables.add(
-                firebaseManager.registerUser(userName.value!!, email.value!!, password.value!!)
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doOnComplete { if (registerError.value.isNullOrEmpty()) registerError.value = null }
-                    .doOnError { registerError.value = it.localizedMessage }
-                    .onErrorComplete()
-                    .subscribe()
-            )
-        }
+       disposables.add(registerUseCase.register(userName.value!!, email.value!!, password.value!!)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({user -> Log.v("RegisterResult", user.userId)}, {e -> Log.v("RegisterResult", e.localizedMessage)}))
+
     }
 
     fun showChatRoom() {

@@ -12,30 +12,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.robertkeazor.chatapp.BR
 import com.robertkeazor.chatapp.R
+import com.robertkeazor.chatapp.base.BaseFragment
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class LoginFragment : DaggerFragment() {
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    lateinit var vm: LoginViewModel
+class LoginFragment : BaseFragment<LoginViewModel>() {
+    override val layout = R.layout.register
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        vm = ViewModelProviders.of(this, viewModelFactory)[LoginViewModel::class.java]
-        val binding: ViewDataBinding = DataBindingUtil.inflate(inflater, R.layout.register, container, false)
-        binding.setVariable(BR.vm, vm)
-        binding.lifecycleOwner = this
-        setObservers()
-        return binding.root
-    }
+    override fun getViewModelClass() = LoginViewModel::class.java
 
-    fun setObservers() {
+    override fun setObservers() {
         vm.enterChatScreenEvent.observe(this, Observer {
             it.getContentIfNotHandled {
-                findNavController().navigate(R.id.action_mainFragment_to_chatFragment)
+                goto(R.id.action_mainFragment_to_chatFragment)
             }
         })
     }

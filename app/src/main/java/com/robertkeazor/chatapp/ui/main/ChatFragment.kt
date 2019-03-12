@@ -9,23 +9,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 
 import com.robertkeazor.chatapp.R
+import com.robertkeazor.chatapp.base.BaseFragment
 import javax.inject.Inject
 
-class ChatFragment : Fragment() {
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: ChatViewModel
+class ChatFragment : BaseFragment<ChatViewModel>() {
+    override val layout = R.layout.chat_fragment
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.chat_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ChatViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+    override fun getViewModelClass() = ChatViewModel::class.java
 }

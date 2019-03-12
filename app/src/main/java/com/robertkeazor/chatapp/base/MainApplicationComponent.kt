@@ -1,6 +1,7 @@
 package com.robertkeazor.chatapp.base
 
 import android.content.Context
+import com.robertkeazor.chatapp.ui.main.di.ChatModule
 import com.robertkeazor.chatapp.ui.main.di.LoginModule
 import com.robertkeazor.chatapp.ui.main.di.ViewModelModule
 import dagger.BindsInstance
@@ -13,7 +14,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         LoginModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+        ChatModule::class
     ]
 )
 @Singleton
