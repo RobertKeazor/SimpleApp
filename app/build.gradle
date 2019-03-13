@@ -81,7 +81,7 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.google.firebase:firebase-firestore:18.1.0'
-
+    implementation recyclerview_dividers
 
 }
 

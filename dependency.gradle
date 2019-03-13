@@ -131,4 +131,5 @@ ext {
             runner: "org.spekframework.spek2:spek-runner-junit5:$spek_version"
     ]
     lifeCycleComponent = "android.arch.lifecycle:extensions:$lifecycleComponentVersion"
+    recyclerview_dividers = "com.yqritc:recyclerview-flexibledivider:1.4.0"
 }

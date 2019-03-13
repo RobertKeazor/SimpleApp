@@ -1,6 +1,5 @@
 package com.robertkeazor.chatapp.ui.main.di
 
-import com.robertkeazor.chatapp.ui.main.ChatFragment
 import com.robertkeazor.chatapp.ui.main.login.LoginFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

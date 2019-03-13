@@ -2,7 +2,7 @@ package com.robertkeazor.chatapp.ui.main.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.robertkeazor.chatapp.ui.main.ChatViewModel
+import com.robertkeazor.chatapp.ui.main.chat.ChatViewModel
 import com.robertkeazor.chatapp.ui.main.login.LoginViewModel
 import dagger.Binds
 import dagger.MapKey
