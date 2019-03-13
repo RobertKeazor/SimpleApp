@@ -1,19 +1,21 @@
 package com.robertkeazor.chatapp.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-
 import com.robertkeazor.chatapp.R
 import com.robertkeazor.chatapp.base.BaseFragment
-import javax.inject.Inject
+import kotlinx.android.synthetic.main.chat_fragment.*
 
 class ChatFragment : BaseFragment<ChatViewModel>() {
     override val layout = R.layout.chat_fragment
 
     override fun getViewModelClass() = ChatViewModel::class.java
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        animation_view.setOnClickListener {
+            animation_view.playAnimation()
+
+        }
+    }
 }

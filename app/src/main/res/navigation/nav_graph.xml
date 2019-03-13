@@ -10,4 +10,6 @@
                 app:enterAnim="@anim/nav_default_pop_enter_anim" app:launchSingleTop="false"/>
     </fragment>
     <fragment android:id="@+id/chatFragment" android:name="com.robertkeazor.chatapp.ui.main.ChatFragment"
-              android:label="chat_fragment" tools:layout="@layout/chat_fragment"/></navigation>
+              android:label="chat_fragment" tools:layout="@layout/chat_fragment">
+        <argument android:name="userId" app:argType="string"/>
+    </fragment></navigation>

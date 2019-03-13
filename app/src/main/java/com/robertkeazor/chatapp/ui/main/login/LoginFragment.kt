@@ -1,20 +1,11 @@
 package com.robertkeazor.chatapp.ui.main.login
 
-import androidx.lifecycle.ViewModelProviders
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.robertkeazor.chatapp.BR
+import com.google.android.material.snackbar.Snackbar
 import com.robertkeazor.chatapp.R
 import com.robertkeazor.chatapp.base.BaseFragment
-import dagger.android.support.DaggerFragment
-import javax.inject.Inject
+import kotlinx.android.synthetic.main.register.*
 
 class LoginFragment : BaseFragment<LoginViewModel>() {
     override val layout = R.layout.register
@@ -24,7 +15,15 @@ class LoginFragment : BaseFragment<LoginViewModel>() {
     override fun setObservers() {
         vm.enterChatScreenEvent.observe(this, Observer {
             it.getContentIfNotHandled {
-                goto(R.id.action_mainFragment_to_chatFragment)
+               val direction = LoginFragmentDirections.actionMainFragmentToChatFragment(it)
+                direction.userId = it
+                findNavController().navigate(direction)
+            }
+        })
+
+        vm.showSnackbarEvent.observe(this, Observer {
+            it.getContentIfNotHandled {
+                Snackbar.make(main, it,Snackbar.LENGTH_LONG).show()
             }
         })
     }
