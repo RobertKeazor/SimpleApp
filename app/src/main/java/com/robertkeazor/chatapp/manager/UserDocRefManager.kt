@@ -20,7 +20,7 @@ class UserDocRefManager @Inject constructor(val context: Context) {
         .getInstance()
         .collection(UsersCollectionKey)
 
-    fun registerUser(userName: String, email: String, password: String) =
+    fun registerUser(email: String, password: String) =
         Single.create<Task<AuthResult>> {
             val apiInstanceCode = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context)
             if (apiInstanceCode == ConnectionResult.SUCCESS) {
@@ -45,7 +45,14 @@ class UserDocRefManager @Inject constructor(val context: Context) {
                     it.onError(Throwable("Sign In Failed"))
                 }
             }
+            .addOnFailureListener { failure ->
+                Log.v("Login", failure.localizedMessage)
+                it.onError(failure)
+            }
     }
+
+    fun logoutUser() = auth.signOut()
+
 
     fun createUser(user: User): Single<User> =
         Single.create {

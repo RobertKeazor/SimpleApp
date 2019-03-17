@@ -11,15 +11,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.robertkeazor.chatapp.BR
-import com.robertkeazor.chatapp.R
-import com.robertkeazor.chatapp.ui.main.login.LoginViewModel
+import com.robertkeazor.chatapp.ui.SharedViewModel
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
-import kotlin.reflect.KClass
 
 abstract class BaseFragment<T: ViewModel> : DaggerFragment() {
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     lateinit var vm: T
+    lateinit var sharedVm:  SharedViewModel
     abstract val layout: Int
 
     abstract fun getViewModelClass(): Class<T>
@@ -29,6 +28,9 @@ abstract class BaseFragment<T: ViewModel> : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View {
         vm = ViewModelProviders.of(this, viewModelFactory)[getViewModelClass()]
+        sharedVm = activity!!.run {
+            ViewModelProviders.of(this).get(SharedViewModel::class.java)
+        }
         val binding: ViewDataBinding = DataBindingUtil.inflate(inflater, layout, container, false)
         binding.setVariable(BR.vm, vm) //This assumes that the binding variable in xml will be called "vm"
         binding.lifecycleOwner = this

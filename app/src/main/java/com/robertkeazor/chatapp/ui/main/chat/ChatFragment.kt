@@ -21,11 +21,13 @@ class ChatFragment : BaseFragment<ChatViewModel>() {
             animation_view.playAnimation()
             vm.sendMessage(text_box.text.toString())
             text_box.setText("")
+
         }
         chat.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ChatAdapter(vm).also { it.registerObserver(this@ChatFragment) }
         }
+        vm.userName = sharedVm.user.userName
         addObservers()
     }
 

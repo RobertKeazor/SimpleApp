@@ -11,5 +11,4 @@
     </fragment>
     <fragment android:id="@+id/chatFragment" android:name="com.robertkeazor.chatapp.ui.main.chat.ChatFragment"
               android:label="chat_fragment" tools:layout="@layout/chat_fragment">
-        <argument android:name="userId" app:argType="string"/>
     </fragment></navigation>

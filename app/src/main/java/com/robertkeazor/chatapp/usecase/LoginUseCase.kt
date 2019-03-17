@@ -2,7 +2,6 @@ package com.robertkeazor.chatapp.usecase
 
 import com.robertkeazor.chatapp.manager.UserDocRefManager
 import com.robertkeazor.chatapp.model.User
-import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -13,4 +12,8 @@ class LoginUseCase @Inject constructor(val userDocRefManager: UserDocRefManager)
             .subscribeOn(Schedulers.io())
             .flatMap { userDocRefManager.retrieveUser(it.result!!.user.uid)}
     }
+
+    fun getUser(userId: String) = userDocRefManager.retrieveUser(userId)
+        .subscribeOn(Schedulers.io())
+
 }

@@ -45,6 +45,5 @@ class ChatDocRefManager @Inject constructor() {
             }
 
         })
-
     }
 }
