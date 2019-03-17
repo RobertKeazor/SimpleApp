@@ -1,7 +1,10 @@
 package com.robertkeazor.chatapp.ui.main.chat
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.robertkeazor.chatapp.R
 import com.robertkeazor.chatapp.base.BaseFragment
@@ -22,7 +25,16 @@ class ChatFragment : BaseFragment<ChatViewModel>() {
         chat.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ChatAdapter(vm).also { it.registerObserver(this@ChatFragment) }
-
         }
+        addObservers()
+    }
+
+    fun addObservers() {
+        vm.closeKeyboardEvent.observe(this, Observer {
+            it.getContentIfNotHandled {
+                val imm = activity!!.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(text_box.windowToken, 0)
+            }
+        })
     }
 }
