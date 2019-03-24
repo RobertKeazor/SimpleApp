@@ -21,6 +21,7 @@ class LoginViewModel @Inject constructor(
     val disposables = CompositeDisposable()
     val enterChatScreenEvent = MutableLiveData<Event<User>>()
     val showSnackbarEvent = MutableLiveData<Event<String>>()
+    val photoClickEvent = MutableLiveData<Event<Boolean>>()
     var isNewUser = true
 
     init {
@@ -43,6 +44,10 @@ class LoginViewModel @Inject constructor(
         } else {
             showSnackbarEvent.value = Event("No Field should be empty")
         }
+    }
+
+    fun profilePicClick() {
+        photoClickEvent.value = Event(true)
     }
 
     fun  onLoginButtonClick() {

@@ -52,6 +52,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/avatars"
+                android:onClick="@{()-> vm.profilePicClick()}"
                 android:src="@drawable/avatar_placeholder"
                 android:layout_marginBottom="28dp"
                 app:layout_constraintHorizontal_bias="0.5"

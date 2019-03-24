@@ -42,6 +42,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+    implementation 'com.google.firebase:firebase-storage:16.1.0'
     kapt androidLibs.lifecycleKapt
     implementation androidLibs.recyclerView
     implementation firebase.core
@@ -58,6 +59,8 @@ dependencies {
     kapt dagger.androidProcessor
     kapt dagger.compiler
     implementation dagger.lib
+    compileOnly dagger.assisted
+    kapt dagger.assisted_annotations
 
     implementation 'com.google.android.material:material:1.0.0'
     implementation "com.airbnb.android:lottie:3.0.0-beta2"

@@ -1,6 +1,9 @@
 package com.robertkeazor.chatapp.ui.main.login
 
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -13,6 +16,7 @@ import kotlinx.android.synthetic.main.register.*
 
 class LoginFragment : BaseFragment<LoginViewModel>() {
     override val layout = R.layout.register
+    val REQUEST_IMAGE_CAPTURE = 1
 
     override fun getViewModelClass() = LoginViewModel::class.java
 
@@ -31,6 +35,24 @@ class LoginFragment : BaseFragment<LoginViewModel>() {
             }
         })
 
+        vm.photoClickEvent.observe(this, Observer {
+            it.getContentIfNotHandled {
+                Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                        takePictureIntent.resolveActivity(activity!!.packageManager)?.also {
+                            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                        }
+                    }
+
+            }
+        })
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE) {
+            val imageBitmap = data!!.extras.get("data") as Bitmap
+            profile_image.setImageBitmap(imageBitmap)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
